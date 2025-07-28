@@ -1,4 +1,4 @@
-# ADmyBRAND Insights
+# AI-Powered Analytics Dashboard
 
 A modern digital marketing analytics dashboard for agencies and brands. Gain actionable insights into your campaigns, audience, and performance with beautiful charts, real-time data, and exportable reports.
 
