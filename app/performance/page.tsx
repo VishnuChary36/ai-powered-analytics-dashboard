@@ -80,7 +80,6 @@ export default function PerformancePage() {
                   <Card key={i}><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-4 w-6" /></CardHeader><CardContent><Skeleton className="h-8 w-20 mb-2" /><Skeleton className="h-4 w-16" /></CardContent></Card>
                 ))
                 : summary.map((item, i) => (
-                  <Card key={i}><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{item.label}</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">{item.value}</div><p className="text-xs text-muted-foreground">{item.sub}</p></CardContent></Card>
                   <Card key={i}><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{item.label}</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">{typeof item.value === 'number' ? item.value.toFixed(1) : item.value}</div><p className="text-xs text-muted-foreground">{item.sub}</p></CardContent></Card>
                 ))}
             </div>
