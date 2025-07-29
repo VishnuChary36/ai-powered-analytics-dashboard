@@ -38,7 +38,13 @@ export default function AudiencePage() {
     const interval = setInterval(() => {
       setLoading(true);
       setTimeout(() => {
-        setSummary(s => s.map(item => ({ ...item, value: typeof item.value === 'number' ? item.value + Math.floor(Math.random() * 100) : item.value })));
+        setSummary(s =>
+          s.map(item =>
+            typeof item.value === 'number'
+              ? { ...item, value: item.value + Math.floor(Math.random() * 100) }
+              : item
+          )
+        );
         setLoading(false);
       }, 1000);
     }, 20000);
@@ -63,7 +69,7 @@ export default function AudiencePage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
               <DateRangePicker value={dateRange} onChange={setDateRange} />
-              <ExportButton data={summary} type="summary" filename="audience-summary" variant="default" />
+              <ExportButton data={undefined} type="table" filename="audience-summary" variant="default" />
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {loading

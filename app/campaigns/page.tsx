@@ -12,14 +12,14 @@ import { startOfMonth, endOfMonth } from 'date-fns';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Download, 
-  Plus, 
-  Play, 
-  Pause, 
-  Target, 
-  TrendingUp, 
-  Users, 
+import {
+  Download,
+  Plus,
+  Play,
+  Pause,
+  Target,
+  TrendingUp,
+  Users,
   DollarSign,
   Eye,
   MousePointer
@@ -232,28 +232,27 @@ export default function CampaignsPage() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => handleCampaignAction('Paused', 'Selected campaigns')}
                   >
                     <Pause className="w-4 h-4 mr-2" />
                     Pause All Active
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => handleCampaignAction('Resumed', 'Selected campaigns')}
                   >
                     <Play className="w-4 h-4 mr-2" />
                     Resume Paused
                   </Button>
-                  <ExportButton 
-                    data={data} 
-                    type="campaigns" 
+                  <ExportButton
+                    data={data ?? undefined}
+                    type="campaigns"
                     filename="campaigns-export"
                     variant="outline"
-                    size="sm"
                   />
                 </div>
               </CardContent>
@@ -272,11 +271,11 @@ export default function CampaignsPage() {
             />
           </main>
         </div>
-        
+
         {/* Floating Export Button */}
-        <FloatingExportButton 
-          data={data} 
-          type="campaigns" 
+        <FloatingExportButton
+          data={data ?? undefined}
+          type="campaigns"
           filename="campaigns-export"
         />
       </div>

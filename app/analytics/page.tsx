@@ -80,9 +80,9 @@ export default function AnalyticsPage() {
                   Deep dive into your marketing performance with detailed analytics
                 </p>
               </div>
-              <ExportButton 
-                data={data} 
-                type="analytics" 
+              <ExportButton
+                data={data ?? undefined}
+                type="analytics"
                 filename="advanced-analytics-report"
                 variant="default"
               />
@@ -210,11 +210,11 @@ export default function AnalyticsPage() {
             </div>
           </main>
         </div>
-        
+
         {/* Floating Export Button */}
-        <FloatingExportButton 
-          data={data} 
-          type="analytics" 
+        <FloatingExportButton
+          data={data ?? undefined}
+          type="analytics"
           filename="analytics-export"
         />
       </div>

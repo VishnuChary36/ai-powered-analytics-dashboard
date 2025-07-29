@@ -63,7 +63,7 @@ export default function ReportsPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
               <DateRangePicker value={dateRange} onChange={setDateRange} />
-              <ExportButton data={summary} type="summary" filename="reports-summary" variant="default" />
+              <ExportButton data={undefined} type="table" filename="reports-summary" variant="default" />
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {loading

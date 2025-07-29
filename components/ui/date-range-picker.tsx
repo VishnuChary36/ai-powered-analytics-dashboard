@@ -81,9 +81,15 @@ export function DateRangePicker({ value, onChange, className }: DateRangePickerP
             <PopoverContent align="start" className="w-auto p-0">
               <Calendar
                 mode="range"
-                selected={value}
+                selected={{
+                  from: value.from || undefined,
+                  to: value.to || undefined
+                }}
                 onSelect={range => {
-                  onChange(range as DateRange);
+                  onChange({
+                    from: range?.from || null,
+                    to: range?.to || null
+                  });
                   setQuick('custom');
                 }}
                 numberOfMonths={2}
