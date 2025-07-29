@@ -11,7 +11,13 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ExportButton } from '@/components/dashboard/ExportButton';
 import { startOfMonth, endOfMonth } from 'date-fns';
 
-const mockSummary = [
+interface SummaryItem {
+  label: string;
+  value: number | string;
+  sub: string;
+}
+
+const mockSummary: SummaryItem[] = [
   { label: 'Scheduled Campaigns', value: 24, sub: 'This month' },
   { label: 'Upcoming', value: 8, sub: 'Next 7 days' },
   { label: 'Completed', value: 16, sub: 'This month' },
@@ -20,7 +26,7 @@ const mockSummary = [
 
 export default function CalendarPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [summary, setSummary] = useState(mockSummary);
+  const [summary, setSummary] = useState<SummaryItem[]>(mockSummary);
   const [loading, setLoading] = useState(true);
   const [dateRange, setDateRange] = useState<DateRange>({
     from: startOfMonth(new Date()),
@@ -38,7 +44,10 @@ export default function CalendarPage() {
     const interval = setInterval(() => {
       setLoading(true);
       setTimeout(() => {
-        setSummary(s => s.map(item => ({ ...item, value: typeof item.value === 'number' ? item.value + Math.floor(Math.random() * 3) : item.value })));
+        setSummary(s => s.map(item => ({ 
+          ...item, 
+          value: typeof item.value === 'number' ? item.value + Math.floor(Math.random() * 3) : item.value 
+        })));
         setLoading(false);
       }, 1000);
     }, 20000);

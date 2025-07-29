@@ -11,7 +11,13 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ExportButton } from '@/components/dashboard/ExportButton';
 import { startOfMonth, endOfMonth } from 'date-fns';
 
-const mockSummary = [
+interface SummaryItem {
+  label: string;
+  value: number | string;
+  sub: string;
+}
+
+const mockSummary: SummaryItem[] = [
   { label: 'Performance Score', value: 87.5, sub: '+2.1 from last week' },
   { label: 'Goal Completion', value: '92%', sub: '8 of 10 goals met' },
   { label: 'ROI', value: '324%', sub: '+18% from last month' },
@@ -20,7 +26,7 @@ const mockSummary = [
 
 export default function PerformancePage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [summary, setSummary] = useState(mockSummary);
+  const [summary, setSummary] = useState<SummaryItem[]>(mockSummary);
   const [loading, setLoading] = useState(true);
   const [dateRange, setDateRange] = useState<DateRange>({
     from: startOfMonth(new Date()),
@@ -38,7 +44,10 @@ export default function PerformancePage() {
     const interval = setInterval(() => {
       setLoading(true);
       setTimeout(() => {
-        setSummary(s => s.map(item => ({ ...item, value: typeof item.value === 'number' ? (item.value + Math.random() * 2 - 1).toFixed(1) : item.value })));
+        setSummary(s => s.map(item => ({ 
+          ...item, 
+          value: typeof item.value === 'number' ? item.value + Math.random() * 2 - 1 : item.value 
+        })));
         setLoading(false);
       }, 1000);
     }, 20000);
@@ -72,6 +81,7 @@ export default function PerformancePage() {
                 ))
                 : summary.map((item, i) => (
                   <Card key={i}><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{item.label}</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">{item.value}</div><p className="text-xs text-muted-foreground">{item.sub}</p></CardContent></Card>
+                  <Card key={i}><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{item.label}</CardTitle></CardHeader><CardContent><div className="text-2xl font-bold">{typeof item.value === 'number' ? item.value.toFixed(1) : item.value}</div><p className="text-xs text-muted-foreground">{item.sub}</p></CardContent></Card>
                 ))}
             </div>
             <Card>
