@@ -16,7 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { TableRow, DashboardData } from '@/lib/types';
 
 interface ExportButtonProps {
-  data?: TableRow[] | DashboardData;
+  data?: TableRow[] | DashboardData | null;
   type: 'table' | 'analytics' | 'campaigns';
   filename?: string;
   className?: string;

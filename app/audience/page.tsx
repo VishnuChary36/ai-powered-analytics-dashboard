@@ -11,7 +11,13 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ExportButton } from '@/components/dashboard/ExportButton';
 import { startOfMonth, endOfMonth } from 'date-fns';
 
-const mockSummary = [
+interface SummaryItem {
+  label: string;
+  value: number | string;
+  sub: string;
+}
+
+const mockSummary: SummaryItem[] = [
   { label: 'Total Audience', value: 45231, sub: '+12% from last month' },
   { label: 'New Users', value: 2350, sub: '+8% from last month' },
   { label: 'Segments', value: 12, sub: 'Active segments' },
@@ -20,7 +26,7 @@ const mockSummary = [
 
 export default function AudiencePage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [summary, setSummary] = useState(mockSummary);
+  const [summary, setSummary] = useState<SummaryItem[]>(mockSummary);
   const [loading, setLoading] = useState(true);
   const [dateRange, setDateRange] = useState<DateRange>({
     from: startOfMonth(new Date()),
@@ -38,13 +44,10 @@ export default function AudiencePage() {
     const interval = setInterval(() => {
       setLoading(true);
       setTimeout(() => {
-        setSummary(s =>
-          s.map(item =>
-            typeof item.value === 'number'
-              ? { ...item, value: item.value + Math.floor(Math.random() * 100) }
-              : item
-          )
-        );
+        setSummary(s => s.map(item => ({ 
+          ...item, 
+          value: typeof item.value === 'number' ? item.value + Math.floor(Math.random() * 100) : item.value 
+        })));
         setLoading(false);
       }, 1000);
     }, 20000);
