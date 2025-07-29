@@ -2,6 +2,12 @@
 
 A modern digital marketing analytics dashboard for agencies and brands. Gain actionable insights into your campaigns, audience, and performance with beautiful charts, real-time data, and exportable reports.
 
+## 🌐 Live Demo
+
+**[View Live Dashboard →](https://ai-powered-analytics-dashboard.netlify.app/)**
+
+Experience the full dashboard with interactive charts, real-time data updates, and export functionality. All features are fully functional with simulated marketing data.
+
 ## 🚀 Features
 
 - **Dashboard Overview**: Key metrics at a glance (Revenue, Active Users, Conversion Rate, Growth Rate)
@@ -9,20 +15,20 @@ A modern digital marketing analytics dashboard for agencies and brands. Gain act
   - Conversion Rate, Customer Lifetime Value, Return on Ad Spend, Active Users
   - Traffic Sources & Device Breakdown
   - Interactive charts (Line, Bar, Donut)
-- **Campaign Management**: 
+- **Campaign Management**:
   - View, filter, and search campaigns
   - Sort and paginate campaign data
   - Export campaign data to PDF/CSV
-- **Performance Tracking**: 
+- **Performance Tracking**:
   - Performance Score, Goal Completion, ROI, Activity Score
   - (More advanced metrics coming soon)
-- **Audience Management**: 
+- **Audience Management**:
   - Total Audience, New Users, Segments, Engagement Rate
   - (Segmentation and targeting tools coming soon)
-- **Calendar**: 
+- **Calendar**:
   - Scheduled, Upcoming, Completed, and Overdue Campaigns
   - (Full calendar view and scheduling coming soon)
-- **Reports**: 
+- **Reports**:
   - Generate and export summary reports
   - (Custom report builders and advanced analytics coming soon)
 - **Modern UI/UX**: Responsive, dark mode, smooth animations
@@ -62,11 +68,13 @@ public/        # Static assets (if any)
    yarn install
    ```
 3. **Run the development server:**
+
    ```bash
    npm run dev
    # or
    yarn dev
    ```
+
    Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
 4. **Build for production:**
@@ -88,4 +96,4 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-> **Note:** Some advanced features (custom reports, audience segmentation, campaign scheduling, etc.) are under development and will be available in future releases. 
+> **Note:** Some advanced features (custom reports, audience segmentation, campaign scheduling, etc.) are under development and will be available in future releases.
