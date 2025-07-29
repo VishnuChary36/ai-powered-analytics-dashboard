@@ -17,7 +17,7 @@ import { TableRow, DashboardData } from '@/lib/types';
 import { cn } from '@/lib/utils';
 
 interface FloatingExportButtonProps {
-  data?: TableRow[] | DashboardData;
+  data?: TableRow[] | DashboardData | null;
   type: 'table' | 'analytics' | 'campaigns';
   filename?: string;
   className?: string;
